@@ -1,5 +1,18 @@
 ---
-
+import data from "@data/data.json";
+import SectionContainer from "@components/SectionContainer.astro";
 ---
 
-<h1 class="text-3xl text-red-200">Sobre mí</h1>
+<SectionContainer>
+  <h1 class="tracking-wide text-2xl text-center">
+    {data.about.title}
+  </h1>
+  <h3 class="text-xl text-center pb-4">
+    {data.about.subtitle}
+  </h3>
+  <div class="grid grid-cols-1 gap-4">
+    <article>
+      {data.about.description}
+    </article>
+  </div>
+</SectionContainer>

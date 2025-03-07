@@ -1,5 +1,19 @@
 ---
-
+import SectionContainer from "@components/SectionContainer.astro";
+import data from "@data/data.json";
 ---
 
-<h1 class="text-3xl font-bold underline">Proyectos</h1>
+<SectionContainer>
+  <h1 class="tracking-wide text-2xl text-center mb-3">Proyectos</h1>
+  <div class="grid grid-cols-1 gap-4 place-items-center">
+    {
+      data.projects.map((item) => (
+        <div class="flex flex-col items-center p-3 bg-sky-900 rounded-lg shadow-md hover:bg-sky-800 transition duration-200 w-full max-w-4xl">
+          <h1 class="font-bold text-xl">{item.name}</h1>
+          <h3>{item.description}</h3>
+          <ul>{item.stack.map((item) => item)}</ul>
+        </div>
+      ))
+    }
+  </div>
+</SectionContainer>

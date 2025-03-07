@@ -1,5 +1,88 @@
 ---
+import SectionContainer from "@components/SectionContainer.astro";
 
+import gitLogo from "super-tiny-icons/images/svg/github.svg";
+import reactLogo from "super-tiny-icons/images/svg/react.svg";
+import javascriptLogo from "super-tiny-icons/images/svg/javascript.svg";
+import vueLogo from "super-tiny-icons/images/svg/vue.svg";
+import flutterLogo from "super-tiny-icons/images/svg/flutter.svg";
+import nodeLogo from "super-tiny-icons/images/svg/nodejs.svg";
+import mysqlLogo from "super-tiny-icons/images/svg/mysql.svg";
+import pythonLogo from "super-tiny-icons/images/svg/python.svg";
+import dockerLogo from "super-tiny-icons/images/svg/docker.svg";
+import firebaseLogo from "../assets/icons/firebase.svg";
+
+const TECHNOLOGIES = [
+  {
+    name: "Javascript",
+    url: "https://developer.mozilla.org/es/docs/Web/JavaScript",
+    icon: javascriptLogo,
+  },
+  {
+    name: "React",
+    url: "https://es.react.dev/",
+    icon: reactLogo,
+  },
+  {
+    name: "Vue",
+    url: "https://vuejs.org/",
+    icon: vueLogo,
+  },
+  {
+    name: "Flutter",
+    url: "https://docs.flutter.dev/?_gl=1*6gt2ez*_gcl_aw*R0NMLjE3NDEzMDY2NzkuQ2p3S0NBaUFyS1ctQmhBekVpd0FaaFdzSU5XSnlnanc5Zm9EWGtsSWlDM3RCbDFwVk5Rdzd2Mk1hQlg0MkR4VWVvU3dtREFTa2FtZDBob0NrQ3NRQXZEX0J3RQ..*_gcl_dc*R0NMLjE3NDEzMDY2NzkuQ2p3S0NBaUFyS1ctQmhBekVpd0FaaFdzSU5XSnlnanc5Zm9EWGtsSWlDM3RCbDFwVk5Rdzd2Mk1hQlg0MkR4VWVvU3dtREFTa2FtZDBob0NrQ3NRQXZEX0J3RQ..*_up*MQ..*_gs*MQ..*_ga*MTk0MzU0MzAxNi4xNzE0MDcwODEw*_ga_04YGWK0175*MTc0MTMwNjY2Ni4xOC4xLjE3NDEzMDY2NzguMC4wLjA.&gclid=CjwKCAiArKW-BhAzEiwAZhWsINWJygjw9foDXklIiC3tBl1pVNQw7v2MaBX42DxUeoSwmDASkamd0hoCkCsQAvD_BwE&gclsrc=aw.ds",
+    icon: flutterLogo,
+  },
+  {
+    name: "Node",
+    url: "https://nodejs.org/docs/latest/api/",
+    icon: nodeLogo,
+  },
+  {
+    name: "Firebase",
+    url: "https://firebase.google.com/",
+    icon: firebaseLogo,
+  },
+  {
+    name: "MySQL",
+    url: "https://www.mysql.com/",
+    icon: mysqlLogo,
+  },
+  {
+    name: "Python",
+    url: "https://www.python.org/",
+    icon: pythonLogo,
+  },
+  {
+    name: "Git",
+    url: "https://github.com/",
+    icon: gitLogo,
+  },
+  {
+    name: "Docker",
+    url: "https://www.docker.com/",
+    icon: dockerLogo,
+  },
+];
 ---
 
-<h1 class="text-3xl font-bold underline">Tecnologías</h1>
+<SectionContainer>
+  <h1 class="tracking-wide text-2xl text-center mb-3">Tecnologías</h1>
+  <div
+    class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-4 place-items-center"
+  >
+    {
+      TECHNOLOGIES.map((item) => (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-col items-center p-3 bg-sky-900 rounded-lg shadow-md hover:bg-sky-800 transition duration-200 w-24"
+        >
+          <img src={item.icon.src} alt={item.name} width="80" height="80" />
+          <span class="text-sm font-medium mt-2">{item.name}</span>
+        </a>
+      ))
+    }
+  </div>
+</SectionContainer>

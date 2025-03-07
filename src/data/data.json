@@ -1,0 +1,47 @@
+{
+  "about": {
+    "title": "Hola! Me llamo Camila",
+    "subtitle": "Desarrolladora de software",
+    "description": "Me motiva la creatividad y la innovación, buscando siempre construir proyectos que no solo sean funcionales, sino que también aporten valor real.En mi experiencia técnica, he trabajado en diversas áreas que han fortalecido mis habilidades de comunicación, resolución de problemas y adaptabilidad. Estoy en constante aprendizaje...Siempre lista para el próximo desafío."
+  },
+  "education": [
+    {
+      "institution": "4Geeks Academy",
+      "title": "Certificación Full Stack Developer"
+    },
+    {
+      "institution": "Duoc-UC",
+      "title": "Diplomado en Desarrollo de Software"
+    },
+    {
+      "institution": "Inacap ",
+      "title": "Técnico en Mantenimiento Industrial"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "name": "Índices Bursátiles",
+      "description": "Aplicación que permite ver la evolución de valores en el mercado de algunos comercios, en el periodo comprendido entre 06-11-2023 y 06-11-2024.",
+      "url": ["https://github.com/kamimefis/Ipsa-Vue-Project"],
+      "stack": ["Vue", "Pinia", "Chart.js", "PrimeVue"]
+    },
+    {
+      "id": "2",
+      "name": "4 Wait",
+      "description": "Aplicación de reserva de mesas en locales de comida, para evitar filas de espera. Se notifica al cliente mediante un Whatsapp",
+      "url": [
+        "https://github.com/kamimefis/grupo_3_part-time_back-end/blob/develop",
+        "https://github.com/kamimefis/Grupo-3-Part-Time-xi-Frontend"
+      ],
+      "stack": ["React", "Flask", "MySQL", "Twilio"]
+    },
+    {
+      "id": "3",
+      "name": "Movie Fight",
+      "description": "Comparador de películas según calificaciones",
+      "url": ["https://github.com/kamimefis/Movie_Fight"],
+      "stack": ["Javascript", "CSS", "HTML"]
+    }
+  ]
+}
