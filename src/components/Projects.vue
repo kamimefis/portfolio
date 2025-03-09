@@ -1,0 +1,72 @@
+<script lang="ts">
+import data from "@data/data.json";
+import { ref, defineComponent } from "vue";
+
+interface Project {
+  id: string;
+  name: string;
+  description: string;
+  url: string[];
+  stack: string[];
+  image: string;
+};
+
+export default defineComponent({
+  setup() {
+    const projects = ref<Project[]>(data.projects || []);
+    console.log(projects.value);
+
+    const currentIndex = ref(0);
+
+    const nextProject = () => {
+      currentIndex.value = (currentIndex.value + 1) % projects.value.length;
+    };
+
+    const prevProject = () => {
+      currentIndex.value =
+        (currentIndex.value - 1 + projects.value.length) % projects.value.length;
+    };
+
+    return { projects, currentIndex, nextProject, prevProject };
+  },
+})
+</script>
+
+<template>
+  <section class="mx-auto max-w-6xl px-4 w-full mb-8">
+    <h1 class="tracking-wide text-2xl text-center mb-3">Proyectos</h1>
+    <div class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
+      <div class="md:shrink-0">
+        <img :src="'/images/' + projects[currentIndex].image" alt="Project Image"
+          class="h-48 w-full object-cover md:h-84 md:w-full" />
+      </div>
+      <div class="p-8">
+        <h1 class=" text-xl font-semibold tracking-wide text-purple-950 uppercase">{{ projects[currentIndex].name }}
+        </h1>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span v-for="(tech, index) in projects[currentIndex].stack" :key="index"
+            class="border-2 border-purple-500 text-purple-700 px-3 py-1 rounded-full text-xs">
+            {{ tech }}
+          </span>
+        </div>
+        <p class="my-4 text-gray-500">
+          {{ projects[currentIndex].description }}
+        </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <a v-for="(link, index) in projects[currentIndex].url" :key="index" :href="link" target="_blank"
+            class="bg-purple-950 hover:bg-purple-600 hover:text-white active:bg-purple-700 px-4 py-2 font-thin text-sm rounded-md ">
+            {{ projects[currentIndex].url.length > 1 ? `REPOSITORIO ${index + 1}` : "REPOSITORIO" }}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto max-w-md overflow-hidden rounded-xl md:max-w-2xl gap-4 flex justify-center p-1">
+      <button @click="prevProject" class="p-1 border-purple-700 border-2 hover:bg-purple-600 rounded-xl ">
+        <span class=" text-4xl">&#8678;</span>
+      </button>
+      <button @click="nextProject" class="p-1 border-purple-700 border-2 hover:bg-purple-600 rounded-xl ">
+        <span class=" text-4xl">&#8680;</span>
+      </button>
+    </div>
+  </section>
+</template>
