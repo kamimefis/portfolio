@@ -21,7 +21,7 @@ export default defineComponent({
     const projects = ref<Project[]>([]);
 
 
-    console.log("Llamando a:", BACKEND_URL);
+    // console.log("Llamando a:", BACKEND_URL);
     const fetchProjects = async () => {
       try {
         // const res = await fetch("http://localhost:3001/api/data");
