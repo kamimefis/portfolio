@@ -1,6 +1,9 @@
 ---
-import data from "@data/data.json";
+// import data from "@data/data.json";
 import gitLogo from "super-tiny-icons/images/svg/github.svg";
+
+const response = await fetch("http://localhost:3001/api/data");
+const data = await response.json();
 ---
 
 <div
