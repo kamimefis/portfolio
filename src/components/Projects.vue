@@ -14,7 +14,7 @@ interface Project {
 export default defineComponent({
   setup() {
     const projects = ref<Project[]>(data.projects || []);
-    console.log(projects.value);
+    //console.log(projects.value);
 
     const currentIndex = ref(0);
 
@@ -40,7 +40,7 @@ export default defineComponent({
         <img :src="'/images/' + projects[currentIndex].image" alt="Project Image"
           class="h-48 w-full object-cover md:h-84 md:w-full" />
       </div>
-      <div class="p-8">
+      <div class="p-8 bg-gray-300 ">
         <h1 class=" text-xl font-semibold tracking-wide text-purple-950 uppercase">{{ projects[currentIndex].name }}
         </h1>
         <div class="flex flex-wrap gap-2 mt-2">
