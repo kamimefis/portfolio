@@ -1,13 +1,22 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro";
-import data from "@data/data.json";
+// import data from "@data/data.json";
+
+interface Education {
+  title: string;
+  institution: string;
+}
+
+const response = await fetch("http://localhost:3001/api/data");
+const data = await response.json();
+const education: Education[] = data.education;
 ---
 
 <SectionContainer>
   <h1 class="tracking-wide text-2xl text-center mb-3">Educación</h1>
   <div class="grid grid-cols-1 gap-4 place-items-center">
     {
-      data.education.map((item) => (
+      data.education.map((item: Education) => (
         <div class="flex flex-col items-center p-3 bg-sky-900 rounded-lg shadow-md hover:bg-sky-800 transition duration-200 w-full max-w-lg">
           <h1 class="font-bold text-xl">{item.title}</h1>
           <h3>{item.institution}</h3>
