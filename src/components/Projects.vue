@@ -2,6 +2,7 @@
 // import data from "@data/data.json";
 import { ref, defineComponent, onMounted } from "vue";
 import ProjectButton from "./ProjectButton.vue";
+import { BACKEND_URL } from "@config/api";
 
 interface Project {
   id: string;
@@ -19,9 +20,12 @@ export default defineComponent({
     //console.log(projects.value);
     const projects = ref<Project[]>([]);
 
+
+    console.log("Llamando a:", BACKEND_URL);
     const fetchProjects = async () => {
       try {
-        const res = await fetch("http://localhost:3001/api/data");
+        // const res = await fetch("http://localhost:3001/api/data");
+        const res = await fetch(BACKEND_URL);
         const data = await res.json();
         projects.value = data.projects;
         console.log("Datos cargados:", projects.value);

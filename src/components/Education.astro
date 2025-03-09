@@ -1,13 +1,15 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro";
 // import data from "@data/data.json";
+import { BACKEND_URL } from "@config/api";
 
 interface Education {
   title: string;
   institution: string;
 }
 
-const response = await fetch("http://localhost:3001/api/data");
+// const response = await fetch("http://localhost:3001/api/data");
+const response = await fetch(BACKEND_URL);
 const data = await response.json();
 const education: Education[] = data.education;
 ---

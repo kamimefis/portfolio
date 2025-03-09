@@ -10,6 +10,7 @@
       "@styles/*": ["src/styles/*"],
       "@data/*": ["src/data/*"],
       "@icons/*": ["src/icons/*"],
+      "@config/*": ["src/config/*"],
     }
   }
 }

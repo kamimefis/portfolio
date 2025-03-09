@@ -1,8 +1,9 @@
 ---
 // import data from "@data/data.json";
 import gitLogo from "super-tiny-icons/images/svg/github.svg";
-
-const response = await fetch("http://localhost:3001/api/data");
+import { BACKEND_URL } from "@config/api";
+// const response = await fetch("http://localhost:3001/api/data");
+const response = await fetch(BACKEND_URL);
 const data = await response.json();
 ---
 
