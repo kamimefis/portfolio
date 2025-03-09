@@ -1,6 +1,6 @@
 <script lang="ts">
-import data from "@data/data.json";
-import { ref, defineComponent } from "vue";
+// import data from "@data/data.json";
+import { ref, defineComponent, onMounted } from "vue";
 import ProjectButton from "./ProjectButton.vue";
 
 interface Project {
@@ -15,8 +15,21 @@ interface Project {
 export default defineComponent({
   components: { ProjectButton },
   setup() {
-    const projects = ref<Project[]>(data.projects || []);
+    // const projects = ref<Project[]>(data.projects || []);
     //console.log(projects.value);
+    const projects = ref<Project[]>([]);
+
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch("http://localhost:3001/api/data");
+        const data = await res.json();
+        projects.value = data.projects;
+        console.log("Datos cargados:", projects.value);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+    onMounted(fetchProjects);
 
     const currentIndex = ref(0);
 
@@ -37,7 +50,7 @@ export default defineComponent({
 <template>
   <section class="mx-auto max-w-6xl px-4 w-full mb-8">
     <h1 class="tracking-wide text-2xl text-center mb-3">Proyectos</h1>
-    <div class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
+    <div v-if="projects.length" class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
       <div class="md:shrink-0">
         <img :src="'/images/' + projects[currentIndex].image" alt="Project Image"
           class="h-48 w-full object-cover md:h-84 md:w-full" />
