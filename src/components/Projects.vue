@@ -1,6 +1,7 @@
 <script lang="ts">
 import data from "@data/data.json";
 import { ref, defineComponent } from "vue";
+import ProjectButton from "./ProjectButton.vue";
 
 interface Project {
   id: string;
@@ -12,6 +13,7 @@ interface Project {
 };
 
 export default defineComponent({
+  components: { ProjectButton },
   setup() {
     const projects = ref<Project[]>(data.projects || []);
     //console.log(projects.value);
@@ -27,7 +29,7 @@ export default defineComponent({
         (currentIndex.value - 1 + projects.value.length) % projects.value.length;
     };
 
-    return { projects, currentIndex, nextProject, prevProject };
+    return { projects, currentIndex, nextProject, prevProject, leftIcon: "m15 19-7-7 7-7", rightIcon: "m9 5 7 7-7 7", };
   },
 })
 </script>
@@ -60,13 +62,9 @@ export default defineComponent({
         </div>
       </div>
     </div>
-    <div class="mx-auto max-w-md overflow-hidden rounded-xl md:max-w-2xl gap-4 flex justify-center p-1">
-      <button @click="prevProject" class="p-1 border-purple-700 border-2 hover:bg-purple-600 rounded-xl ">
-        <span class=" text-4xl">&#8678;</span>
-      </button>
-      <button @click="nextProject" class="p-1 border-purple-700 border-2 hover:bg-purple-600 rounded-xl ">
-        <span class=" text-4xl">&#8680;</span>
-      </button>
+    <div class="mx-auto max-w-md overflow-hidden rounded-xl md:max-w-2xl gap-4 flex justify-center p-2">
+      <ProjectButton :onClick="prevProject" :iconPath="leftIcon" ariaLabel="Anterior" />
+      <ProjectButton :onClick="nextProject" :iconPath="rightIcon" ariaLabel="Siguiente" />
     </div>
   </section>
 </template>
