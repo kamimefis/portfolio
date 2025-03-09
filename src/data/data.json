@@ -22,26 +22,29 @@
     {
       "id": "1",
       "name": "Índices Bursátiles",
-      "description": "Aplicación que permite ver la evolución de valores en el mercado de algunos comercios, en el periodo comprendido entre 06-11-2023 y 06-11-2024.",
+      "description": "Aplicación que permite ver la variación de valores de algunos instrumentos en el mercado, en el periodo comprendido entre 06-11-2023 y 06-11-2024.",
       "url": ["https://github.com/kamimefis/Ipsa-Vue-Project"],
-      "stack": ["Vue", "Pinia", "Chart.js", "PrimeVue"]
+      "stack": ["Vue", "Pinia", "Chart.js", "PrimeVue"],
+      "image": "indice-bursatil.jpg"
     },
     {
       "id": "2",
       "name": "4 Wait",
-      "description": "Aplicación de reserva de mesas en locales de comida, para evitar filas de espera. Se notifica al cliente mediante un Whatsapp",
+      "description": "Aplicación de reserva de mesas en locales de comida, para evitar filas de espera. Se notifica al cliente mediante un mensaje de texto a su celular",
       "url": [
         "https://github.com/kamimefis/grupo_3_part-time_back-end/blob/develop",
         "https://github.com/kamimefis/Grupo-3-Part-Time-xi-Frontend"
       ],
-      "stack": ["React", "Flask", "MySQL", "Twilio"]
+      "stack": ["React", "Flask", "MySQL", "Clever Cloud", "Twilio"],
+      "image": "4wait.jpg"
     },
     {
       "id": "3",
       "name": "Movie Fight",
-      "description": "Comparador de películas según calificaciones",
+      "description": "Aplicación que permite buscar y comparar dos películas. Se puede revisar la cantidad de premios que ha ganado, su calificación en IMDB, entre otros",
       "url": ["https://github.com/kamimefis/Movie_Fight"],
-      "stack": ["Javascript", "CSS", "HTML"]
+      "stack": ["Javascript", "CSS", "HTML"],
+      "image": "movie-fight.jpg"
     }
   ]
 }
